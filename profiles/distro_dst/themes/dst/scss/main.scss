@@ -1,0 +1,203 @@
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/images";
+@import "compass/css3/box-sizing";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import 'normalize';
+@import 'fonts';
+@import 'variables';
+@import 'mixin';
+@import 'typography';
+@import "grids";
+body {
+    background: url(../img/base_bg.png);
+    font-family: Calibri;
+    color: $base_font;
+}
+
+ul,
+li,
+ul.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+tbody {
+    border: none;
+}
+
+a,
+li a.active,
+input {
+    text-decoration: none;
+    outline: none !important;
+    color: $base_font;
+}
+
+#top-header {
+    @include container;
+    // @include outerbox(1);
+    @include padding-leader(.5);
+    @include padding-trailer(.5);
+    background-color: #fff;
+    background-image:url(../img/header_wave.png);
+    background-repeat: repeat-x;
+    background-position: 0 bottom;
+}
+
+#header {    
+    @include innerbox(0, 1);
+    background: $dark_blue;    
+}
+
+#navigation {    
+    position: relative;
+    z-index: 1;
+}
+
+
+#main-menu {
+    li {
+        display: inline-block;
+        // border-right: 1px solid $menu_spr;
+        margin: 1em 0;
+        padding: 0  1em;         
+        background: url(../img/dark_menu_item_sep.png) no-repeat right center;
+
+        a {
+            display: block;
+            font-size: 18px;
+            color: #fff;
+            @include single-transition(all, 0.3s, ease-out, 0s);
+            // line-height: 14px;
+            &:hover {
+                color:$gold;
+            }
+        }
+    }
+}
+
+#baner {
+    @include innerbox(0,0);
+    #block-views-main-slider-block {
+        position: relative;        
+        img {
+            @include img_res;
+        }
+        .bx-controls {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+        }
+        .bx-controls-direction {
+            @include innerbox(0, 1);
+            font-family: fontawesome;
+            a {
+                display: inline-block;
+                width: 58px;
+                height: 58px;
+                background: #fff;
+                line-height: 58px;
+                text-align: center;
+                font-size: 18px;
+                &.bx-prev {
+                    float: left;
+                }
+                &.bx-next {
+                    float: right;
+                }
+                &:hover {
+                    color: $brown;
+                }
+            }
+        }
+    }
+}
+
+#block-views-views-about-block {
+    position: relative;
+    z-index: 1;
+    @include innerbox;
+    @include boxshadow;
+    margin-top: -30px;
+    .content {
+        background: #fff;
+        padding: gutter(12);
+        text-align: center;
+        .views-field-title {
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+#promotion {
+    .region-promotion {}
+    #block-views-views-our-product-block {
+        background: url(../img/border.png);
+        background-repeat: repeat-x;
+        padding-top: 1px;
+        @include margin-leader(2.5);
+        .block-title{
+            font-weight: normal;
+            text-transform: uppercase;
+            max-width: 400px;
+            margin:0 auto;
+            background: #fff;
+            @include boxshadow;
+            border-radius: 2px;
+            text-align: center;
+            margin-top: -25px;
+        }
+        .content {
+            @include container;
+            @include innerbox(0, 1);
+            @include margin-leader(3);
+            .views-row {
+                @include gallery(3);
+                background: #fff;
+                border-bottom: 10px solid $orange;
+                border-left: 1px solid $gray_border;
+                border-right: 1px solid $gray_border;
+                @include box-sizing(border-box);
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+                .row-content {
+                    padding: gutter(6);
+                }
+                .views-field-field-product-img {
+                    img {
+                        @include img_res;
+                    }
+                    padding-bottom:gutter(6);
+                }
+                .views-field-field-product-price-pp {
+                    @include padding-leader(0.5);
+                    @include padding-trailer(0.5);
+                    margin-bottom: gutter(6);
+                    border-top: 1px solid $gray_border;
+                    border-bottom: 1px solid $gray_border;
+                    @include clearfix;
+                    .title {
+                        font-weight: bold;
+                        font-size: 18px;
+                        float: left;
+                    }
+                    .price {
+                        float: right;
+                        font-size: 20px;
+                        .suffix {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .views-field-body{
+                    color: $grayblue;
+                }
+            }
+        }
+    }
+}
+
+// Media queries---------
+@import 'media';
