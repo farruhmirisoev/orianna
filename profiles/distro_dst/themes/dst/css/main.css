@@ -952,3 +952,8 @@ input {
 #promotion #block-views-views-our-product-block .content .views-row .views-field-body {
   color: #8d9ba8;
 }
+
+/* line 202, ../scss/main.scss */
+body {
+  background-repeat: no-repeat;
+}
